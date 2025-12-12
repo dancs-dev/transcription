@@ -1,0 +1,40 @@
+[project]
+name = "transcription"
+version = "0.1.0"
+description = "CLI tool to translate and transcribe videos."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "click>=8.3.1",
+    "ffmpeg>=1.4",
+    "ffmpeg-python>=0.2.0",
+    "speechrecognition[whisper-local]>=3.14.3",
+]
+
+[project.scripts]
+transcription = "transcription:main"
+
+[build-system]
+requires = ["uv_build>=0.9.17,<0.10.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14.8",
+]
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+]
